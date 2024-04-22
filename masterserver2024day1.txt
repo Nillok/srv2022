@@ -1,0 +1,50 @@
+@CiscoWireless:
+config t
+Dot11 ssid wins31wifi
+ authentication open
+ authentication key-management wpa
+ wpa-psk ascii winser123
+ guest-mode
+int dot11Radio 0
+ no shut
+ encryption mode ciphers tkip
+ ssid wins31wifi
+
+@CoreSwitch: for vlan 10
+Cisco:
+config t
+ip routing
+int vlan 10
+ ip Helper-Address 10.31.1.10
+end
+
+@Passwords
+Username: Cisco
+Password: Cisco
+
+@CoreSwitch: for vlan 50
+Cisco:
+config t
+ip routing
+int vlan 50
+ ip Helper-Address 10.31.1.10
+end
+
+
+
+TASK 8: DOMAIN NAME SYSTEM/SERVER installation/configuration
+
+
+
+
+TASK 9: 
+
+add-DnsServerResourceRecord -zonename gawako31.com -Cname -name bago -hostname w22.gawako31.com
+
+New-Website -name "PangApat" -hostheader "bago.gawako31.com" -physicalpath "d:\Webs\appbiz"
+
+
+TASK 10: INSTALLING YOUR OWN EMAIL SERVERS at your office
+MicrosoftExchange = superMahal + yearlySubscription!
+ZimbraEmail = MedyoMura +mapapamura ka sa Subscription/troubleshooting
+Hmail = libre, maliit, pag lab
